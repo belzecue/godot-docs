@@ -11,36 +11,7 @@ GDNativeLibrary
 
 **Inherits:** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
-
-Brief Description
------------------
-
 An external library containing functions or script classes to use in Godot.
-
-Properties
-----------
-
-+-------------------------------------+--------------------------------------------------------------------+----------+
-| :ref:`ConfigFile<class_ConfigFile>` | :ref:`config_file<class_GDNativeLibrary_property_config_file>`     |          |
-+-------------------------------------+--------------------------------------------------------------------+----------+
-| :ref:`bool<class_bool>`             | :ref:`load_once<class_GDNativeLibrary_property_load_once>`         | true     |
-+-------------------------------------+--------------------------------------------------------------------+----------+
-| :ref:`bool<class_bool>`             | :ref:`reloadable<class_GDNativeLibrary_property_reloadable>`       | true     |
-+-------------------------------------+--------------------------------------------------------------------+----------+
-| :ref:`bool<class_bool>`             | :ref:`singleton<class_GDNativeLibrary_property_singleton>`         | false    |
-+-------------------------------------+--------------------------------------------------------------------+----------+
-| :ref:`String<class_String>`         | :ref:`symbol_prefix<class_GDNativeLibrary_property_symbol_prefix>` | "godot_" |
-+-------------------------------------+--------------------------------------------------------------------+----------+
-
-Methods
--------
-
-+-----------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| :ref:`PoolStringArray<class_PoolStringArray>` | :ref:`get_current_dependencies<class_GDNativeLibrary_method_get_current_dependencies>` **(** **)** const |
-+-----------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| :ref:`String<class_String>`                   | :ref:`get_current_library_path<class_GDNativeLibrary_method_get_current_library_path>` **(** **)** const |
-+-----------------------------------------------+----------------------------------------------------------------------------------------------------------+
 
 Description
 -----------
@@ -50,9 +21,33 @@ A GDNative library can implement :ref:`NativeScript<class_NativeScript>`\ s, glo
 Tutorials
 ---------
 
-- :doc:`../tutorials/plugins/gdnative/gdnative-c-example`
+_ :doc:`../tutorials/scripting/gdnative/gdnative_c_example`
 
-- :doc:`../tutorials/plugins/gdnative/gdnative-cpp-example`
+_ :doc:`../tutorials/scripting/gdnative/gdnative_cpp_example`
+
+Properties
+----------
+
++-------------------------------------+--------------------------------------------------------------------+--------------+
+| :ref:`ConfigFile<class_ConfigFile>` | :ref:`config_file<class_GDNativeLibrary_property_config_file>`     |              |
++-------------------------------------+--------------------------------------------------------------------+--------------+
+| :ref:`bool<class_bool>`             | :ref:`load_once<class_GDNativeLibrary_property_load_once>`         | ``true``     |
++-------------------------------------+--------------------------------------------------------------------+--------------+
+| :ref:`bool<class_bool>`             | :ref:`reloadable<class_GDNativeLibrary_property_reloadable>`       | ``true``     |
++-------------------------------------+--------------------------------------------------------------------+--------------+
+| :ref:`bool<class_bool>`             | :ref:`singleton<class_GDNativeLibrary_property_singleton>`         | ``false``    |
++-------------------------------------+--------------------------------------------------------------------+--------------+
+| :ref:`String<class_String>`         | :ref:`symbol_prefix<class_GDNativeLibrary_property_symbol_prefix>` | ``"godot_"`` |
++-------------------------------------+--------------------------------------------------------------------+--------------+
+
+Methods
+-------
+
++---------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| :ref:`PackedStringArray<class_PackedStringArray>` | :ref:`get_current_dependencies<class_GDNativeLibrary_method_get_current_dependencies>` **(** **)** const |
++---------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| :ref:`String<class_String>`                       | :ref:`get_current_library_path<class_GDNativeLibrary_method_get_current_library_path>` **(** **)** const |
++---------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 
 Property Descriptions
 ---------------------
@@ -69,12 +64,14 @@ Property Descriptions
 
 This resource in INI-style :ref:`ConfigFile<class_ConfigFile>` format, as in ``.gdnlib`` files.
 
+----
+
 .. _class_GDNativeLibrary_property_load_once:
 
 - :ref:`bool<class_bool>` **load_once**
 
 +-----------+----------------------+
-| *Default* | true                 |
+| *Default* | ``true``             |
 +-----------+----------------------+
 | *Setter*  | set_load_once(value) |
 +-----------+----------------------+
@@ -85,12 +82,14 @@ If ``true``, Godot loads only one copy of the library and each script that refer
 
 If ``false``, Godot loads a separate copy of the library into memory for each script that references it.
 
+----
+
 .. _class_GDNativeLibrary_property_reloadable:
 
 - :ref:`bool<class_bool>` **reloadable**
 
 +-----------+-----------------------+
-| *Default* | true                  |
+| *Default* | ``true``              |
 +-----------+-----------------------+
 | *Setter*  | set_reloadable(value) |
 +-----------+-----------------------+
@@ -101,12 +100,14 @@ If ``true``, the editor will temporarily unload the library whenever the user sw
 
 **Note:** If the library defines tool scripts that run inside the editor, ``reloadable`` must be ``false``. Otherwise, the editor will attempt to unload the tool scripts while they're in use and crash.
 
+----
+
 .. _class_GDNativeLibrary_property_singleton:
 
 - :ref:`bool<class_bool>` **singleton**
 
 +-----------+----------------------+
-| *Default* | false                |
+| *Default* | ``false``            |
 +-----------+----------------------+
 | *Setter*  | set_singleton(value) |
 +-----------+----------------------+
@@ -117,12 +118,14 @@ If ``true``, Godot loads the library at startup rather than the first time a scr
 
 **Note:** A singleton library cannot be :ref:`reloadable<class_GDNativeLibrary_property_reloadable>`.
 
+----
+
 .. _class_GDNativeLibrary_property_symbol_prefix:
 
 - :ref:`String<class_String>` **symbol_prefix**
 
 +-----------+--------------------------+
-| *Default* | "godot_"                 |
+| *Default* | ``"godot_"``             |
 +-----------+--------------------------+
 | *Setter*  | set_symbol_prefix(value) |
 +-----------+--------------------------+
@@ -138,9 +141,11 @@ Method Descriptions
 
 .. _class_GDNativeLibrary_method_get_current_dependencies:
 
-- :ref:`PoolStringArray<class_PoolStringArray>` **get_current_dependencies** **(** **)** const
+- :ref:`PackedStringArray<class_PackedStringArray>` **get_current_dependencies** **(** **)** const
 
 Returns paths to all dependency libraries for the current platform and architecture.
+
+----
 
 .. _class_GDNativeLibrary_method_get_current_library_path:
 

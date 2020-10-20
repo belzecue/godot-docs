@@ -10,11 +10,9 @@ Requirements
 
 To compile export templates for the Web, the following is required:
 
--  `Emscripten 1.38.27+ <http://kripken.github.io/emscripten-site>`__: If the version available
-   per package manager is not recent enough, the best alternative is to install
-   using the `Emscripten SDK <http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html>`__
--  `Python 2.7+ or Python 3.5+ <https://www.python.org/>`__
--  `SCons <https://www.scons.org>`__ build system
+-  `Emscripten 1.39.0+ <https://emscripten.org>`__.
+-  `Python 3.5+ <https://www.python.org/>`__.
+-  `SCons 3.0+ <https://www.scons.org>`__ build system.
 
 .. seealso:: For a general overview of SCons usage for Godot, see
              :ref:`doc_introduction_to_the_buildsystem`.
@@ -41,7 +39,8 @@ either ``release`` for a release build or ``release_debug`` for a debug build::
     scons platform=javascript tools=no target=release_debug
 
 By default, the :ref:`JavaScript singleton <doc_javascript_eval>` will be built
-into the engine. Since ``eval()`` calls can be a security concern, the
+into the engine. Official export templates also have the JavaScript singleton
+enabled. Since ``eval()`` calls can be a security concern, the
 ``javascript_eval`` option can be used to build without the singleton::
 
     scons platform=javascript tools=no target=release javascript_eval=no

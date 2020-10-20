@@ -11,17 +11,10 @@ VisualShaderNodeFresnel
 
 **Inherits:** :ref:`VisualShaderNode<class_VisualShaderNode>` **<** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
+A Fresnel effect to be used within the visual shader graph.
 
-Brief Description
------------------
+Description
+-----------
 
-
-
-Properties
-----------
-
-+---------------------------+----------------------+---------------------------------------------------------------------------+
-| :ref:`Array<class_Array>` | default_input_values | **O:** [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 0, 0, 0 ), 2, false, 3, 1.0 ] |
-+---------------------------+----------------------+---------------------------------------------------------------------------+
+Returns falloff based on the dot product of surface normal and view direction of camera (pass associated inputs to it).
 

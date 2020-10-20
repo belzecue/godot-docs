@@ -6,11 +6,13 @@ Engine development
    :name: toc-devel-cpp
 
    introduction_to_godot_development
-   configuring_an_ide
+   configuring_an_ide/index
+   common_engine_methods_and_macros
    core_types
    variant_class
    object_class
    inheritance_class_tree
+   unit_testing
    custom_modules_in_cpp
    binding_to_external_libraries
    custom_resource_format_loaders

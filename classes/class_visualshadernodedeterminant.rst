@@ -11,17 +11,10 @@ VisualShaderNodeDeterminant
 
 **Inherits:** :ref:`VisualShaderNode<class_VisualShaderNode>` **<** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
+Calculates the determinant of a :ref:`Transform<class_Transform>` within the visual shader graph.
 
-Brief Description
------------------
+Description
+-----------
 
-
-
-Properties
-----------
-
-+---------------------------+----------------------+---------------------------------------------------------------+
-| :ref:`Array<class_Array>` | default_input_values | **O:** [ 0, Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ] |
-+---------------------------+----------------------+---------------------------------------------------------------+
+Translates to ``deteminant(x)`` in the shader language.
 

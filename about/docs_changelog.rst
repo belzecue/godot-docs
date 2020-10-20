@@ -3,9 +3,10 @@
 Documentation changelog
 =======================
 
-The documentation is continually being improved. The release of version 3.1
+The documentation is continually being improved. The release of version 3.2
 includes many new tutorials, many fixes and updates for old tutorials, and many updates
-to the class reference. Below is a list of new tutorials added since version 3.0.
+to the :ref:`class reference <toc-class-ref>`. Below is a list of new tutorials
+added since version 3.1.
 
 .. note:: This document only contains new tutorials so not all changes are reflected,
           many tutorials have been substantially updated but are not reflected in this document.
@@ -26,6 +27,7 @@ Project workflow
 Audio
 ^^^^^
 
+- :ref:`doc_recording_with_microphone`
 - :ref:`doc_sync_with_audio`
 
 Math
@@ -47,17 +49,23 @@ Internationalization
 Shading
 ^^^^^^^
 
-Your First Shader Series:
-
-- :ref:`doc_what_are_shaders`
-- :ref:`doc_your_first_canvasitem_shader`
-- :ref:`doc_your_first_spatial_shader`
-- :ref:`doc_your_second_spatial_shader`
+- Your First Shader Series:
+    - :ref:`doc_introduction_to_shaders`
+    - :ref:`doc_your_first_canvasitem_shader`
+    - :ref:`doc_your_first_spatial_shader`
+    - :ref:`doc_your_second_spatial_shader`
+- :ref:`doc_visual_shaders`
 
 Networking
 ^^^^^^^^^^
 
 - :ref:`doc_webrtc`
+
+VR
+^^
+
+- :ref:`doc_vr_starter_tutorial_part_one`
+- :ref:`doc_vr_starter_tutorial_part_two`
 
 Plugins
 ^^^^^^^
@@ -161,22 +169,16 @@ Viewports
 Shading
 ^^^^^^^
 
-- :ref:`doc_intro_to_shaders_water_workshop`
-- :ref:`doc_migrating_to_godot_shader_language`
+- :ref:`doc_converting_glsl_to_godot_shaders`
 - :ref:`doc_advanced_postprocessing`
 
 Shading Reference:
 
-- :ref:`doc_shaders`
+- :ref:`doc_introduction_to_shaders`
 - :ref:`doc_shading_language`
 - :ref:`doc_spatial_shader`
 - :ref:`doc_canvas_item_shader`
 - :ref:`doc_particle_shader`
-
-VR
-^^
-
-- :ref:`doc_vr_starter_tutorial`
 
 Plugins
 ^^^^^^^

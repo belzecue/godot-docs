@@ -23,20 +23,20 @@ professionals. To this end, it primarily uses the decibel scale.
 For those unfamiliar with it, it can be explained with a few facts:
 
 - The decibel (dB) scale is a relative scale. It represents the ratio of
-  sound power by using 10 times the base 10 logarithm of the ratio
-  (10 × log\ :sub:`10`\ (P/P\ :sub:`0`\ )).
-- For every 3 dB, sound amplitude doubles or halves. 6 dB represents a factor
-  of 4, 9 dB a factor of 8, 10 dB a factor of 10, 20 dB a factor of 100, etc.
+  sound power by using 20 times the base 10 logarithm of the ratio
+  (20 × log\ :sub:`10`\ (P/P\ :sub:`0`\ )).
+- For every 6 dB, sound amplitude doubles or halves. 12 dB represents a factor
+  of 4, 18 dB a factor of 8, 20 dB a factor of 10, 40 dB a factor of 100, etc.
 - Since the scale is logarithmic, true zero (no audio) can't be represented.
 - 0 dB is the maximum amplitude possible in a digital audio system.
   This limit is not the human limit, but a limit from the sound hardware.
   Audio with amplitudes that are too high to be represented properly below 0 dB
   create a kind of distortion called *clipping*.
-- To avoid clipping, your sound mix be arranged so that the output of the
+- To avoid clipping, your sound mix should be arranged so that the output of the
   *master bus* (more on that later) never exceeds 0 dB.
-- Every 3 dB below the 0 dB limit, sound energy is *halved*.
-  It means the sound volume at -3 dB is half as loud as 0dB.
-  -6 dB is half as loud as -3 dB and so on.
+- Every 6 dB below the 0 dB limit, sound energy is *halved*.
+  It means the sound volume at -6 dB is half as loud as 0dB.
+  -12 dB is half as loud as -6 dB and so on.
 - When working with decibels, sound is considered no longer audible
   between -60 dB and -80 dB. This makes your working range generally
   between -60 dB and 0 dB.
@@ -158,14 +158,20 @@ are far apart.
 Distortion
 ~~~~~~~~~~
 
-Distortion effects make the sound "dirty". Godot offers several types of
-distortion: *overdrive*, *tan* and *bit crushing*. Distortion can be used
-to simulate sound coming through a low-quality speaker or device.
+Makes the sound distorted. Godot offers several types of distortion: *overdrive*,
+*tan* and *bit crushing*. Distortion can be used to simulate sound coming through
+a low-quality speaker or device.
 
-EQ, EQ6, EQ10, EQ21
-~~~~~~~~~~~~~~~~~~~
+EQ
+~~
 
-Godot provides four equalizers with different numbers of bands. An equalizer on
+EQ is what all other equalizers inherit from. It can be extended with with Custom
+scripts to create an equalizer with a custom number of bands.
+
+EQ6, EQ10, EQ21
+~~~~~~~~~~~~~~~
+
+Godot provides three equalizers with different numbers of bands. An equalizer on
 the Master bus can be useful to cut frequencies that the device's speakers can't
 reproduce well (e.g. a mobile phone's speakers won't reproduce bass content
 well). The equalizer effect can be disabled when headphones are plugged in.
@@ -173,15 +179,19 @@ well). The equalizer effect can be disabled when headphones are plugged in.
 Filter
 ~~~~~~
 
-Filter is what all other effects processors inherit from and should not be used
-directly.
+Filter is what all other filters inherit from and should not be used directly.
 
-HighPassFilter, HighShelfFilter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HighPassFilter
+~~~~~~~~~~~~~~
 
-These are filters that cut frequencies below a specific *Cutoff* frequency.
-HighPassFilter and HighShelfFilter are used to reduce the bass content of a
+Cuts frequencies below a specific *Cutoff* frequency.
+HighPassFilter is used to reduce the bass content of a
 signal.
+
+HighShelfFilter
+~~~~~~~~~~~~~~~
+
+Reduces all frequencies above a specific *Cutoff* frequency.
 
 .. _doc_audio_buses_limiter:
 
@@ -192,13 +202,18 @@ A limiter is similar to a compressor, but it's less flexible and designed to
 prevent a signal's amplitude exceeding a given dB threshold. Adding a limiter to
 the Master bus is a safeguard against clipping.
 
-LowPassFilter, LowShelfFilter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+LowPassFilter
+~~~~~~~~~~~~~
 
-These are the most common filters, they cut frequencies above a specific
-*Cutoff* frequency and can also resonate (boost frequencies close to the
-*Cutoff* frequency). Low pass filters can be used to simulate "muffled" sound.
-For instance, underwater sounds, sounds blocked by walls, or distant sounds.
+Cuts frequencies above a specific *Cutoff* frequency and can also resonate
+(boost frequencies close to the *Cutoff* frequency). Low pass filters can be
+used to simulate "muffled" sound. For instance, underwater sounds, sounds
+blocked by walls, or distant sounds.
+
+LowShelfFilter
+~~~~~~~~~~~~~~
+
+Reduces all frequencies below a specific *Cutoff* frequency.
 
 NotchFilter
 ~~~~~~~~~~~
@@ -239,6 +254,13 @@ be tweaked to obtain the sound of a specific room. Reverb is commonly outputted
 from :ref:`Areas <class_Area>`
 (see :ref:`Reverb buses <doc_audio_streams_reverb_buses>`), or to apply
 a "chamber" feel to all sounds.
+
+SpectrumAnalyzer
+~~~~~~~~~~~~~~~~
+
+This effect doesn't alter audio, instead, you add this effect to buses you want
+a spectrum analysis of. This would typically be used for audio visualization. A
+demo project using this can be found `here <https://github.com/godotengine/godot-demo-projects/tree/master/audio/spectrum>`__.
 
 StereoEnhance
 ~~~~~~~~~~~~~

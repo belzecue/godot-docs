@@ -79,7 +79,7 @@ Multiple instances
 
 You can add as many instances as you like to a scene, either by using the
 "Instance" button again, or by clicking on the ball instance and pressing
-"Duplicate" (Ctrl-D):
+:kbd:`Ctrl + D` (:kbd:`Cmd + D` on macOS) to duplicate it:
 
 .. image:: img/instancing_multiball.png
 
@@ -90,13 +90,8 @@ Run the scene again and all of the balls will fall.
 Editing instances
 -----------------
 
-Open the ``Ball`` scene and add a ``PhysicsMaterial`` by clicking on the down
-arrow and selecting "New PhysicsMaterial".
-
-.. image:: img/instancing_physicsmat1.png
-
-Then, expand the material by clicking on it, and set the ``Bounce`` property
-to ``1``.
+Open the ``Ball`` scene, expand the ``PhysicsMaterial`` by clicking on it,
+and set the ``Bounce`` property to ``1``.
 
 .. image:: img/instancing_physicsmat2.png
 
@@ -107,8 +102,9 @@ changes to that scene will affect all instances.
 You can also adjust individual instances. Set the bounce value back to ``0``
 and then in the ``Main`` scene, select one of the instanced balls. Resources
 like ``PhysicsMaterial`` are shared between instances by default, so we need
-to make it unique. Click on the down arrow and select "Make Unique". Set its
-``Bounce`` to ``1`` and press "Play".
+to make it unique. Click on the tools button in the top-right of the Inspector
+dock and select "Make Sub-Resources Unique". Set its ``Bounce`` to ``1`` and
+press "Play".
 
 .. image:: img/instancing_property.png
 

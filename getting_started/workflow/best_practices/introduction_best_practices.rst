@@ -7,7 +7,7 @@ This series is a collection of best practices to help you work efficiently with
 Godot.
 
 Godot allows for a great amount of flexibility in how you structure a project's
-codebase and break it down into scenes. Each approach has its own pros and
+codebase and break it down into scenes. Each approach has its pros and
 cons, and they can be hard to weigh until you've worked with the engine for long enough.
 
 There are always many ways to structure your code and solve specific programming
@@ -18,8 +18,8 @@ each problem in fundamental questions, suggest solutions, analyze the pros and
 cons of each option, and highlight the best course of action for the problem at hand.
 
 You should start by reading :ref:`doc_what_are_godot_classes`. It explains how
-Godot's nodes and scenes relate to classes and objects in another
-Object-Oriented programming language. It will help you make sense of the rest of the series.
+Godot's nodes and scenes relate to classes and objects in other
+Object-Oriented programming languages. It will help you make sense of the rest of the series.
 
 .. note::
 

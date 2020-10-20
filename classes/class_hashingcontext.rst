@@ -11,42 +11,7 @@ HashingContext
 
 **Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
-
-Brief Description
------------------
-
 Context to compute cryptographic hashes over multiple iterations.
-
-Methods
--------
-
-+-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolByteArray<class_PoolByteArray>` | :ref:`finish<class_HashingContext_method_finish>` **(** **)**                                                  |
-+-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| :ref:`Error<enum_@GlobalScope_Error>`     | :ref:`start<class_HashingContext_method_start>` **(** :ref:`HashType<enum_HashingContext_HashType>` type **)** |
-+-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| :ref:`Error<enum_@GlobalScope_Error>`     | :ref:`update<class_HashingContext_method_update>` **(** :ref:`PoolByteArray<class_PoolByteArray>` chunk **)**  |
-+-------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-
-Enumerations
-------------
-
-.. _enum_HashingContext_HashType:
-
-.. _class_HashingContext_constant_HASH_MD5:
-
-.. _class_HashingContext_constant_HASH_SHA1:
-
-.. _class_HashingContext_constant_HASH_SHA256:
-
-enum **HashType**:
-
-- **HASH_MD5** = **0** --- Hashing algorithm: MD5.
-
-- **HASH_SHA1** = **1** --- Hashing algorithm: SHA-1.
-
-- **HASH_SHA256** = **2** --- Hashing algorithm: SHA-256.
 
 Description
 -----------
@@ -77,14 +42,48 @@ The :ref:`HashType<enum_HashingContext_HashType>` enum shows the supported hashi
         # Print the result as hex string and array.
         printt(res.hex_encode(), Array(res))
 
+**Note:** Not available in HTML5 exports.
+
+Methods
+-------
+
++-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| :ref:`PackedByteArray<class_PackedByteArray>` | :ref:`finish<class_HashingContext_method_finish>` **(** **)**                                                     |
++-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`start<class_HashingContext_method_start>` **(** :ref:`HashType<enum_HashingContext_HashType>` type **)**    |
++-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+| :ref:`Error<enum_@GlobalScope_Error>`         | :ref:`update<class_HashingContext_method_update>` **(** :ref:`PackedByteArray<class_PackedByteArray>` chunk **)** |
++-----------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
+
+Enumerations
+------------
+
+.. _enum_HashingContext_HashType:
+
+.. _class_HashingContext_constant_HASH_MD5:
+
+.. _class_HashingContext_constant_HASH_SHA1:
+
+.. _class_HashingContext_constant_HASH_SHA256:
+
+enum **HashType**:
+
+- **HASH_MD5** = **0** --- Hashing algorithm: MD5.
+
+- **HASH_SHA1** = **1** --- Hashing algorithm: SHA-1.
+
+- **HASH_SHA256** = **2** --- Hashing algorithm: SHA-256.
+
 Method Descriptions
 -------------------
 
 .. _class_HashingContext_method_finish:
 
-- :ref:`PoolByteArray<class_PoolByteArray>` **finish** **(** **)**
+- :ref:`PackedByteArray<class_PackedByteArray>` **finish** **(** **)**
 
 Closes the current context, and return the computed hash.
+
+----
 
 .. _class_HashingContext_method_start:
 
@@ -92,9 +91,11 @@ Closes the current context, and return the computed hash.
 
 Starts a new hash computation of the given ``type`` (e.g. :ref:`HASH_SHA256<class_HashingContext_constant_HASH_SHA256>` to start computation of a SHA-256).
 
+----
+
 .. _class_HashingContext_method_update:
 
-- :ref:`Error<enum_@GlobalScope_Error>` **update** **(** :ref:`PoolByteArray<class_PoolByteArray>` chunk **)**
+- :ref:`Error<enum_@GlobalScope_Error>` **update** **(** :ref:`PackedByteArray<class_PackedByteArray>` chunk **)**
 
 Updates the computation with the given ``chunk`` of data.
 

@@ -11,23 +11,7 @@ Crypto
 
 **Inherits:** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
-
-Brief Description
------------------
-
 Access to advanced cryptographic functionalities.
-
-Methods
--------
-
-+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`PoolByteArray<class_PoolByteArray>`     | :ref:`generate_random_bytes<class_Crypto_method_generate_random_bytes>` **(** :ref:`int<class_int>` size **)**                                                                                                                                                                                                                                |
-+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`CryptoKey<class_CryptoKey>`             | :ref:`generate_rsa<class_Crypto_method_generate_rsa>` **(** :ref:`int<class_int>` size **)**                                                                                                                                                                                                                                                  |
-+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`X509Certificate<class_X509Certificate>` | :ref:`generate_self_signed_certificate<class_Crypto_method_generate_self_signed_certificate>` **(** :ref:`CryptoKey<class_CryptoKey>` key, :ref:`String<class_String>` issuer_name="CN=myserver,O=myorganisation,C=IT", :ref:`String<class_String>` not_before="20140101000000", :ref:`String<class_String>` not_after="20340101000000" **)** |
-+-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Description
 -----------
@@ -53,20 +37,37 @@ For now, this includes generating cryptographically secure random bytes, and RSA
         key.save("user://generated.key")
         cert.save("user://generated.crt")
 
+**Note:** Not available in HTML5 exports.
+
+Methods
+-------
+
++-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`PackedByteArray<class_PackedByteArray>` | :ref:`generate_random_bytes<class_Crypto_method_generate_random_bytes>` **(** :ref:`int<class_int>` size **)**                                                                                                                                                                                                                                |
++-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`CryptoKey<class_CryptoKey>`             | :ref:`generate_rsa<class_Crypto_method_generate_rsa>` **(** :ref:`int<class_int>` size **)**                                                                                                                                                                                                                                                  |
++-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`X509Certificate<class_X509Certificate>` | :ref:`generate_self_signed_certificate<class_Crypto_method_generate_self_signed_certificate>` **(** :ref:`CryptoKey<class_CryptoKey>` key, :ref:`String<class_String>` issuer_name="CN=myserver,O=myorganisation,C=IT", :ref:`String<class_String>` not_before="20140101000000", :ref:`String<class_String>` not_after="20340101000000" **)** |
++-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 Method Descriptions
 -------------------
 
 .. _class_Crypto_method_generate_random_bytes:
 
-- :ref:`PoolByteArray<class_PoolByteArray>` **generate_random_bytes** **(** :ref:`int<class_int>` size **)**
+- :ref:`PackedByteArray<class_PackedByteArray>` **generate_random_bytes** **(** :ref:`int<class_int>` size **)**
 
-Generates a :ref:`PoolByteArray<class_PoolByteArray>` of cryptographically secure random bytes with given ``size``.
+Generates a :ref:`PackedByteArray<class_PackedByteArray>` of cryptographically secure random bytes with given ``size``.
+
+----
 
 .. _class_Crypto_method_generate_rsa:
 
 - :ref:`CryptoKey<class_CryptoKey>` **generate_rsa** **(** :ref:`int<class_int>` size **)**
 
 Generates an RSA :ref:`CryptoKey<class_CryptoKey>` that can be used for creating self-signed certificates and passed to :ref:`StreamPeerSSL.accept_stream<class_StreamPeerSSL_method_accept_stream>`.
+
+----
 
 .. _class_Crypto_method_generate_self_signed_certificate:
 

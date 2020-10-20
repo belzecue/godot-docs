@@ -11,19 +11,7 @@ MultiMeshInstance
 
 **Inherits:** :ref:`GeometryInstance<class_GeometryInstance>` **<** :ref:`VisualInstance<class_VisualInstance>` **<** :ref:`Spatial<class_Spatial>` **<** :ref:`Node<class_Node>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
-
-Brief Description
------------------
-
 Node that instances a :ref:`MultiMesh<class_MultiMesh>`.
-
-Properties
-----------
-
-+-----------------------------------+--------------------------------------------------------------+
-| :ref:`MultiMesh<class_MultiMesh>` | :ref:`multimesh<class_MultiMeshInstance_property_multimesh>` |
-+-----------------------------------+--------------------------------------------------------------+
 
 Description
 -----------
@@ -35,9 +23,18 @@ This is useful to optimize the rendering of a high amount of instances of a give
 Tutorials
 ---------
 
-- :doc:`../tutorials/3d/vertex_animation/animating_thousands_of_fish`
+- :doc:`../tutorials/performance/vertex_animation/animating_thousands_of_fish`
 
 - :doc:`../tutorials/3d/using_multi_mesh_instance`
+
+- :doc:`../tutorials/performance/using_multimesh`
+
+Properties
+----------
+
++-----------------------------------+--------------------------------------------------------------+
+| :ref:`MultiMesh<class_MultiMesh>` | :ref:`multimesh<class_MultiMeshInstance_property_multimesh>` |
++-----------------------------------+--------------------------------------------------------------+
 
 Property Descriptions
 ---------------------

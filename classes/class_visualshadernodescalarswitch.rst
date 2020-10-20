@@ -11,17 +11,5 @@ VisualShaderNodeScalarSwitch
 
 **Inherits:** :ref:`VisualShaderNodeSwitch<class_VisualShaderNodeSwitch>` **<** :ref:`VisualShaderNode<class_VisualShaderNode>` **<** :ref:`Resource<class_Resource>` **<** :ref:`Reference<class_Reference>` **<** :ref:`Object<class_Object>`
 
-**Category:** Core
 
-Brief Description
------------------
-
-
-
-Properties
-----------
-
-+---------------------------+----------------------+-------------------------------------+
-| :ref:`Array<class_Array>` | default_input_values | **O:** [ 0, false, 1, 1.0, 2, 0.0 ] |
-+---------------------------+----------------------+-------------------------------------+
 

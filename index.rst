@@ -7,10 +7,6 @@ Godot Docs – *master* branch
             Expand the "Read the Docs" panel at the bottom of the sidebar to see
             the list.
 
-  .. attention:: This is the documentation for the development (master) branch.
-                 Looking for the documentation of the current **stable** branch?
-                 `Have a look here <https://docs.godotengine.org/en/stable>`_.
-
 .. only:: i18n
 
   .. note:: This documentation is translated from the `original English one
@@ -26,10 +22,11 @@ Godot Docs – *master* branch
             the "latest" (development) branch, but should be suitable to learn
             how to use stable Godot releases nevertheless.
 
-Welcome to the official documentation of Godot Engine, the free and open source
-community-driven 2D and 3D game engine! If you are new to this documentation,
-we recommend that you read the :ref:`introduction page <doc_about_intro>` to
-get an overview of what this documentation has to offer.
+Welcome to the official documentation of `Godot Engine <https://godotengine.org>`__,
+the free and open source community-driven 2D and 3D game engine! If you are new
+to this documentation, we recommend that you read the
+:ref:`introduction page <doc_about_intro>` to get an overview of what this
+documentation has to offer.
 
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
@@ -68,9 +65,9 @@ The main documentation for the site is organized into the following sections:
    :caption: Getting started
    :name: sec-learn
 
+   getting_started/introduction/index
    getting_started/step_by_step/index
    getting_started/editor/index
-   getting_started/scripting/index
    getting_started/workflow/index
 
 
@@ -79,6 +76,7 @@ The main documentation for the site is organized into the following sections:
    :caption: Tutorials
    :name: sec-tutorials
 
+   tutorials/scripting/index
    tutorials/2d/index
    tutorials/3d/index
    tutorials/audio/index
@@ -88,20 +86,14 @@ The main documentation for the site is organized into the following sections:
    tutorials/inputs/index
    tutorials/io/index
    tutorials/i18n/index
-   tutorials/gui/index
-   tutorials/viewports/index
-   tutorials/shading/index
+   tutorials/ui/index
+   tutorials/rendering/index
+   tutorials/shaders/index
    tutorials/networking/index
-   tutorials/assetlib/index
    tutorials/vr/index
    tutorials/plugins/index
    tutorials/platform/index
-   tutorials/threads/index
-   tutorials/content/index
-   tutorials/optimization/index
-   tutorials/misc/index
-   tutorials/debug/index
-   tutorials/legal/index
+   tutorials/performance/index
 
 
 .. toctree::
@@ -121,6 +113,7 @@ The main documentation for the site is organized into the following sections:
    :name: sec-community
 
    community/contributing/index
+   community/asset_library/index
    community/channels
    community/tutorials
 
