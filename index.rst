@@ -30,7 +30,21 @@ documentation has to offer.
 
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
-in the top left corner.
+in the top-left corner.
+
+To browse the documentation offline, you can use the mirror of the documentation
+hosted on `DevDocs <https://devdocs.io/godot/>`__. To enable offline browsing on
+DevDocs, you need to:
+
+- Click the three dots in the top-left corner, choose **Preferences**.
+- Enable the desired version of the Godot documentation by checking the box
+  next to it in the sidebar.
+- Click the three dots in the top-left corner, choose **Offline data**.
+- Click the **Install** link next to the Godot documentation.
+
+You can also `download an HTML copy <https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-master.zip>`__
+for offline reading (updated every Monday). Extract the ZIP archive then open
+the top-level ``index.html`` in a web browser.
 
 .. note:: Godot Engine is an open source project developed by a community of
           volunteers. The documentation team can always use your
@@ -45,8 +59,8 @@ in the top left corner.
           <https://hosted.weblate.org/engage/godot-engine/>`_ into your
           language, or talk to us on either the ``#documentation``
           channel on `Discord <https://discord.gg/zH7NUgz>`_, or the
-          ``#godotengine-doc`` channel on `irc.freenode.net
-          <http://webchat.freenode.net/?channels=#godotengine-doc>`_!
+          ``#documentation`` channel on the `Godot Contributors Chat
+          <https://chat.godotengine.org/>`_!
 
 .. centered:: |weblate_widget|
 
@@ -67,33 +81,38 @@ The main documentation for the site is organized into the following sections:
 
    getting_started/introduction/index
    getting_started/step_by_step/index
-   getting_started/editor/index
-   getting_started/workflow/index
+   getting_started/first_2d_game/index
+   getting_started/first_3d_game/index
 
 
+.. The sections below are sorted alphabetically. Please keep them that way.
 .. toctree::
    :maxdepth: 1
    :caption: Tutorials
    :name: sec-tutorials
 
-   tutorials/scripting/index
    tutorials/2d/index
    tutorials/3d/index
-   tutorials/audio/index
-   tutorials/physics/index
-   tutorials/math/index
    tutorials/animation/index
+   tutorials/assets_pipeline/index
+   tutorials/audio/index
+   tutorials/best_practices/index
+   tutorials/editor/index
+   tutorials/export/index
+   tutorials/i18n/index
    tutorials/inputs/index
    tutorials/io/index
-   tutorials/i18n/index
-   tutorials/ui/index
-   tutorials/rendering/index
-   tutorials/shaders/index
+   tutorials/math/index
    tutorials/networking/index
-   tutorials/vr/index
-   tutorials/plugins/index
-   tutorials/platform/index
    tutorials/performance/index
+   tutorials/physics/index
+   tutorials/platform/index
+   tutorials/plugins/index
+   tutorials/rendering/index
+   tutorials/scripting/index
+   tutorials/shaders/index
+   tutorials/ui/index
+   tutorials/vr/index
 
 
 .. toctree::

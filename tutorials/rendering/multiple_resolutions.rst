@@ -227,6 +227,18 @@ to the region outside the blue frame you see in the 2D editor.
 
    .. image:: img/stretch_viewport_expand.gif
 
+.. tip::
+
+    To support both portrait and landscape mode with a similar automatically
+    determined scale factor, set your project's base resolution to be a *square*
+    (1:1 aspect ratio) instead of a rectangle. For instance, if you wish to design
+    for 1280×720 as the base resolution but wish to support both portrait and
+    landscape mode, use 720×720 as the project's base window size in the
+    Project Settings.
+
+    To allow the user to choose their preferred screen orientation at run-time,
+    remember to set **Display > Window > Handheld > Orientation** to ``sensor``.
+
 Stretch Shrink
 ^^^^^^^^^^^^^^
 
@@ -250,6 +262,28 @@ From scripts
 To configure stretching at runtime from a script, use the
 ``get_tree().set_screen_stretch()`` method (see
 :ref:`SceneTree.set_screen_stretch() <class_SceneTree_method_set_screen_stretch>`).
+
+hiDPI support
+-------------
+
+By default, Godot projects aren't considered DPI-aware by the operating system.
+This is done to improve performance on low-end systems, since the operating
+system's DPI fallback scaling will be faster than letting the application scale
+itself (even when using the ``viewport`` stretch mode).
+
+However, the OS-provided DPI fallback scaling doesn't play well with fullscreen
+mode. If you want crisp visuals on hiDPI displays or if project uses fullscreen,
+it's recommended to enable **Display > Window > Dpi > Allow Hidpi** in the
+Project Settings.
+
+**Allow Hidpi** is only effective on Windows and macOS. It's ignored on all
+other platforms.
+
+.. note::
+
+    The Godot editor itself is always marked as DPI-aware. Running the project
+    from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the
+    Project Settings.
 
 Reducing aliasing on downsampling
 ---------------------------------

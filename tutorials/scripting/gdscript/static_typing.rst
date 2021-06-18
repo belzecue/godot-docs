@@ -107,7 +107,7 @@ Currently you can use three types of… types:
 1. :ref:`Built-in <doc_gdscript_builtin_types>`
 2. Core classes and nodes (``Object``, ``Node``, ``Area2D``,
    ``Camera2D``, etc.)
-3. Your own, custom classes. Look at the new :ref:`class_name <doc_scripting_continued_class_name>`
+3. Your own custom classes. Look at the new :ref:`class_name <doc_gdscript_basics_class_name>`
    feature to register types in the editor.
 
 .. note::
@@ -248,7 +248,7 @@ Typed or dynamic: stick to one style
 ------------------------------------
 
 Typed GDScript and dynamic GDScript can coexist in the same project. But
-I recommend to stick to either style for consistency in your codebase,
+it's recommended to stick to either style for consistency in your codebase,
 and for your peers. It's easier for everyone to work together if you
 follow the same guidelines, and faster to read and understand other
 people's code.

@@ -51,12 +51,12 @@ Distro-specific one-liners
 |                  |                                                                                                           |
 |                  |     sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \    |
 |                  |         libXi-devel mesa-libGL-devel mesa-libGLU-devel alsa-lib-devel pulseaudio-libs-devel \             |
-|                  |         libudev-devel yasm gcc-c++                                                                        |
+|                  |         libudev-devel yasm gcc-c++ libstdc++-static                                                       |
 +------------------+-----------------------------------------------------------------------------------------------------------+
 | **FreeBSD**      | ::                                                                                                        |
 |                  |                                                                                                           |
-|                  |     sudo pkg install scons pkgconf xorg-libraries libXcursor libXrandr libXi xorgproto libGLU alsa-lib \  |
-|                  |         pulseaudio yasm                                                                                   |
+|                  |     sudo pkg install py37-scons pkgconf xorg-libraries libXcursor libXrandr libXi xorgproto libGLU \      |
+|                  |         alsa-lib pulseaudio yasm                                                                          |
 |                  |                                                                                                           |
 +------------------+-----------------------------------------------------------------------------------------------------------+
 | **Gentoo**       | ::                                                                                                        |
@@ -104,6 +104,20 @@ A good rule of thumb for the ``-j`` (*jobs*) flag, is to have at least as many
 threads compiling Godot as you have cores in your CPU, if not one or two more.
 Feel free to add the ``-j`` option to any SCons command you see below.
 
+You can automatically use all available CPU cores with command substitution.
+
+On Linux, you can use ``nproc``:
+
+::
+
+    scons -j$(nproc)
+
+On \*BSD, you can use ``sysctl -n hw.ncpu``:
+
+::
+
+    scons -j$(sysctl -n hw.ncpu)
+
 .. note::
 
     Prior to Godot 4.0, the Linux/\*BSD target was called ``x11`` instead of
@@ -133,7 +147,7 @@ manager.
           If you are compiling Godot with GCC, you can make the binary
           even smaller and faster by adding the SCons option ``use_lto=yes``.
           As link-time optimization is a memory-intensive process,
-          this will require about 3 GB of available RAM while compiling.
+          this will require about 7 GB of available RAM while compiling.
 
 .. note:: If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable

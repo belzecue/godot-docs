@@ -25,9 +25,9 @@ sessions and what information we want to keep from those objects. For
 this tutorial, we will use groups to mark and handle objects to be saved,
 but other methods are certainly possible.
 
-We will start by adding objects we wish to save to the "Persist" group.
-As in the :ref:`doc_scripting_continued` tutorial, we can do this through
-either the GUI or script. Let's add the relevant nodes using the GUI:
+We will start by adding objects we wish to save to the "Persist" group. We can
+do this through either the GUI or script. Let's add the relevant nodes using the
+GUI:
 
 .. image:: img/groups.png
 
@@ -251,7 +251,7 @@ load function:
     {
         var saveGame = new File();
         if (!saveGame.FileExists("user://savegame.save"))
-            return; // Error!  We don't have a save to load.
+            return; // Error! We don't have a save to load.
 
         // We need to revert the game state so we're not cloning objects during loading.
         // This will vary wildly depending on the needs of a project, so take care with
@@ -277,7 +277,7 @@ load function:
             newObject.Set("Position", new Vector2((float)nodeData["PosX"], (float)nodeData["PosY"]));
 
             // Now we set the remaining variables.
-            foreach (KeyValuePair<object, object> entry in nodeData)
+            foreach (KeyValuePair<string, object> entry in nodeData)
             {
                 string key = entry.Key.ToString();
                 if (key == "Filename" || key == "Parent" || key == "PosX" || key == "PosY")

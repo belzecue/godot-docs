@@ -92,12 +92,13 @@ Vulkan renderer.
 
    - Hard or soft shadows.
 
-- Font rendering using bitmaps (BitmapFont) or rasterization using FreeType (DynamicFont).
+- Font rendering using bitmaps or rasterization using FreeType.
 
    - Bitmap fonts can be exported using tools like BMFont.
-   - DynamicFont supports monochrome fonts as well as colored fonts.
+   - Dynamic fonts supports monochrome fonts as well as colored fonts.
      Supported formats are TTF and OTF.
-   - DynamicFont supports optional font outlines with adjustable width and color.
+   - Dynamic fonts supports optional font outlines with adjustable width and color.
+   - Dynamic fonts supports variable fonts and OpenType features.
    - Support for font oversampling to keep fonts sharp at higher resolutions.
 
 - GPU-based particles with support for custom particle shaders.
@@ -300,7 +301,7 @@ Scripting
 
 - :ref:`High-level interpreted language <doc_gdscript>` with
   :ref:`optional static typing <doc_gdscript_static_typing>`.
-- Syntax inspired by Python.
+- Syntax inspired by Python. However, GDScript is **not** based on Python.
 - Syntax highlighting is provided on GitHub.
 - :ref:`Use threads <doc_using_multiple_threads>` to perform asynchronous actions
   or make use of multiple processor cores.
@@ -370,6 +371,7 @@ Import
 
    - WAV with optional IMA-ADPCM compression.
    - Ogg Vorbis.
+   - MP3.
 
 - *3D scenes:*
 
@@ -436,7 +438,8 @@ Internationalization
   or :ref:`gettext <doc_localization_using_gettext>`.
 - Use localized strings in your project automatically in GUI elements or by
   using the ``tr()`` function.
-- Support for right-to-left typesetting and text shaping planned in Godot 4.0.
+- Support for bidirectional typesetting and text shaping and OpenType localized forms.
+- Automatic UI mirroring for right-to-left locales.
 
 Windowing and OS integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

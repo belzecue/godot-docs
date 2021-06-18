@@ -73,8 +73,9 @@ change: it must be a ``tool`` script, or else it will not load properly in the
 editor, and it must inherit from :ref:`class_EditorPlugin`.
 
 .. warning::
+
     In addition to the EditorPlugin script, any other GDScript that your plugin uses
-    must *also* be a tool.  Any GDScript without ``tool`` imported into the editor
+    must *also* be a tool. Any GDScript without ``tool`` imported into the editor
     will act like an empty file!
 
 It's important to deal with initialization and clean-up of resources.
@@ -137,7 +138,7 @@ custom behavior.
 
   Nodes added via an EditorPlugin are "CustomType" nodes. While they work
   with any scripting language, they have fewer features than
-  :ref:`the Script Class system <doc_scripting_continued_class_name>`. If you
+  :ref:`the Script Class system <doc_gdscript_basics_class_name>`. If you
   are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function

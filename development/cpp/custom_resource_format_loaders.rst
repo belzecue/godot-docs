@@ -12,7 +12,7 @@ path again, the previous loaded Resource will be referenced. Naturally,
 loaded resources must be stateless.
 
 This guide assumes the reader knows how to create C++ modules and Godot
-data types. If not, refer to this guide :ref:`doc_custom_modules_in_c++`.
+data types. If not, refer to this guide: :ref:`doc_custom_modules_in_c++`
 
 References
 ~~~~~~~~~~
@@ -48,7 +48,7 @@ Each file format consist of a data container and a ``ResourceFormatLoader``.
 
 ResourceFormatLoaders are usually simple classes which return all the
 necessary metadata for supporting new extensions in Godot. The
-class must the return the format name and the extension string.
+class must return the format name and the extension string.
 
 In addition, ResourceFormatLoaders must convert file paths into
 resources with the ``load`` function. To load a resource, ``load`` must
@@ -291,7 +291,7 @@ calls into ``std::istream``.
     		}
     	}
     	int uflow() {
-    		return _file->eof_reached() ?  EOF : _file->get_8();
+    		return _file->eof_reached() ? EOF : _file->get_8();
     	}
 
     private:
@@ -304,7 +304,7 @@ References
 
 - `istream <http://www.cplusplus.com/reference/istream/istream/>`_
 - `streambuf <http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf>`_
-- `core/io/fileaccess.h <https://github.com/godotengine/godot/blob/master/core/os/file_access.h>`_
+- `core/io/file_access.h <https://github.com/godotengine/godot/blob/master/core/os/file_access.h>`_
 
 Registering the new file format
 -------------------------------

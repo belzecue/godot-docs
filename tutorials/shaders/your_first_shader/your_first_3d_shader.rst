@@ -259,7 +259,7 @@ use it to set the height value instead of arbitrarily multiplying by ``0.5``.
 
   VERTEX.y += height * height_scale;
 
-Now it looks  much better.
+Now it looks much better.
 
 .. image:: img/noise-low.png
 
@@ -305,7 +305,7 @@ do that by passing in a second noise texture.
   uniform sampler2D normalmap;
 
 Set this second uniform texture to another NoiseTexture with another
-OpenSimplexNoise. But this time, check off "As Normalmap".
+OpenSimplexNoise. But this time, check **As Normalmap**.
 
 .. image:: img/normal-set.png
 

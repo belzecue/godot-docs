@@ -5,6 +5,11 @@ Troubleshooting
 
 This page lists common issues encountered when using Godot and possible solutions.
 
+.. seealso::
+
+    See :ref:`doc_using_the_web_editor` for caveats specific to the HTML5 version
+    of the Godot editor.
+
 Everything I do in the editor or project manager appears delayed by one frame.
 ------------------------------------------------------------------------------
 
@@ -37,6 +42,21 @@ There are several ways to improve performance and battery life:
   particles), hide it and show it using a script in the ``_ready()`` method.
   This way, it will be hidden in the editor but will still be visible in the
   running project.
+
+The editor stutters and flickers on my variable refresh rate monitor (G-Sync/FreeSync).
+---------------------------------------------------------------------------------------
+
+This is a `known issue <https://github.com/godotengine/godot/issues/38219>`__.
+There are two workarounds for this:
+
+- Enable **Interface > Editor > Update Continuously** in the Editor Settings. Keep in mind
+  this will increase power usage and heat/noise emissions, since the editor will
+  now be rendering constantly, even if nothing has changed on screen. To
+  alleviate this, you can increase **Low Processor Mode Sleep Usec** to
+  ``33000`` (30 FPS) in the Editor Settings. This value determines the amount of
+  *microseconds* between frames to render. Higher values will make the editor
+  feel less reactive, but will help decrease CPU and GPU usage significantly.
+- Alternatively, disable variable refresh rate on your monitor or in the graphics driver.
 
 The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
 ------------------------------------------------------------------------------------
@@ -71,6 +91,17 @@ the system console. Godot cannot override this system-specific behavior.
 To solve this, select the system console window and press Enter to leave
 selection mode.
 
+Some text such as "NO DC" appears in the top-left corner of the project manager and editor window.
+--------------------------------------------------------------------------------------------------
+
+This is caused by the NVIDIA graphics driver injecting an overlay to display information.
+
+To disable this overlay on Windows, restore your graphics driver settings to the
+default values in the NVIDIA Control Panel.
+
+To disable this overlay on Linux, open ``nvidia-settings``, go to **X Screen 0 >
+OpenGL Settings** then uncheck **Enable Graphics API Visual Indicator**.
+
 The project window appears blurry, unlike the editor.
 -----------------------------------------------------
 
@@ -99,6 +130,10 @@ into the PCK file. Some files commonly used, such as JSON files, are not
 considered resources. For example, if you load ``test.json`` in the exported
 project, you need to specify ``*.json`` in the non-resource export filter. See
 :ref:`doc_exporting_projects_export_mode` for more information.
+
+Also, note that files and folders whose name begin with a period will never be
+included in the exported project. This is done to prevent version control
+folders like ``.git`` from being included in the exported PCK file.
 
 On Windows, this can also be due to :ref:`case sensitivity
 <doc_project_organization_case_sensitivity>` issues. If you reference a resource

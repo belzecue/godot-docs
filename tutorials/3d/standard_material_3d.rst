@@ -191,7 +191,7 @@ Specular Mode
 Specifies how the specular blob will be rendered. The specular blob
 represents the shape of a light source reflected in the object.
 
-* **ShlickGGX:** The most common blob used by PBR 3D engines nowadays.
+* **SchlickGGX:** The most common blob used by PBR 3D engines nowadays.
 * **Blinn:** Common in previous-generation engines.
   Not worth using nowadays, but left here for the sake of compatibility.
 * **Phong:** Same as above.
@@ -526,19 +526,25 @@ world triplanar, so the brick texture continues smoothly between them.
 
 .. image:: img/spatial_material25.png
 
-Proximity and distance fade
-----------------------------
+Proximity and Distance Fade
+---------------------------
 
 Godot allows materials to fade by proximity to each other as well as depending
 on the distance from the viewer. Proximity fade is useful for effects such as
-soft particles or a mass of water with a smooth blending to the shores. Distance
-fade is useful for light shafts or indicators that are only present after a
-given distance.
-
-Keep in mind enabling these enables alpha blending, so abusing them for an
-entire scene is usually not a good idea.
+soft particles or a mass of water with a smooth blending to the shores.
 
 .. image:: img/spatial_material_proxfade.gif
+
+Distance fade is useful for light shafts or indicators that are only present
+after a given distance.
+
+Keep in mind enabling proximity fade or distance fade with **Pixel Alpha** mode
+enables alpha blending. Alpha blending is more GPU-intensive and can cause
+transparency sorting issues. Alpha blending also disables many material
+features such as the ability to cast shadows.
+To hide a character when they get too close to the camera, consider using
+**Pixel Dither** or better, **Object Dither** (which is even faster than
+**Pixel Dither**).
 
 Render priority
 ---------------

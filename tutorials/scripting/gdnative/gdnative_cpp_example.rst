@@ -33,7 +33,7 @@ There are a few prerequisites you'll need:
 - a C++ compiler,
 - SCons as a build tool,
 - a copy of the `godot-cpp
-  repository <https://github.com/GodotNativeTools/godot-cpp>`__.
+  repository <https://github.com/godotengine/godot-cpp>`__.
 
 See also :ref:`Compiling <toc-devel-compiling>` as the build tools are identical
 to the ones you need to compile Godot from source.
@@ -42,8 +42,8 @@ You can download these repositories from GitHub or let Git do the work for you.
 Note that these repositories now have different branches for different versions
 of Godot. GDNative modules written for an earlier version of Godot will work in
 newer versions (with the exception of one breaking change in ARVR interfaces
-between 3.0 and 3.1) but not vice versa so make sure you download the correct
-branch. Also note that the version of Godot you use to generate the ``api.json``
+between 3.0 and 3.1) but not vice versa, so make sure you download the correct
+branch. Also, note that the version of Godot you use to generate the ``api.json``
 with becomes your minimum version.
 
 If you are versioning your project using Git, it is a good idea to add them as
@@ -55,7 +55,7 @@ Git submodules:
     mkdir gdnative_cpp_example
     cd gdnative_cpp_example
     git init
-    git submodule add https://github.com/GodotNativeTools/godot-cpp
+    git submodule add https://github.com/godotengine/godot-cpp
     cd godot-cpp
     git submodule update --init
 
@@ -64,7 +64,7 @@ Git submodules:
     mkdir gdnative_cpp_example
     cd gdnative_cpp_example
     git init
-    git submodule add -b 3.0 https://github.com/GodotNativeTools/godot-cpp
+    git submodule add -b 3.0 https://github.com/godotengine/godot-cpp
     cd godot-cpp
     git submodule update --init
 
@@ -80,13 +80,13 @@ Do make sure you clone recursive to pull in both repositories:
 
     mkdir gdnative_cpp_example
     cd gdnative_cpp_example
-    git clone --recursive https://github.com/GodotNativeTools/godot-cpp
+    git clone --recursive https://github.com/godotengine/godot-cpp
 
  .. code-tab:: none Godot 3.0
 
     mkdir gdnative_cpp_example
     cd gdnative_cpp_example
-    git clone --recursive -b 3.0 https://github.com/GodotNativeTools/godot-cpp
+    git clone --recursive -b 3.0 https://github.com/godotengine/godot-cpp
 
 .. note::
 
@@ -255,7 +255,12 @@ call to find out which methods can be called on our NativeScript and which
 properties it exposes. The second is our ``_process`` function, which will work
 exactly the same as the ``_process`` function you're used to in GDScript. The
 third is our ``_init`` function which is called after Godot has properly set up
-our object. It has to exist even if you don't place any code in it.
+our object.
+
+.. warning::
+
+    The ``_init`` function has to exist even if you don't place any code in it.
+    Otherwise, the class won't be instantiable.
 
 Let's implement our functions by creating our ``gdexample.cpp`` file:
 

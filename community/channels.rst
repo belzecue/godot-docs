@@ -14,8 +14,17 @@ Q&A
 
 - `Official Godot Questions & Answers <https://godotengine.org/qa/>`_
 
+Rocket.Chat
+-----------
+
+- `Godot Contributors Chat <https://chat.godotengine.org/>`_
+
 IRC on Freenode
 ---------------
+
+.. note::
+
+    As of January 2021, core developer chat has moved to the Godot Contributors Chat platform listed above.
 
 - `General: #godotengine <https://webchat.freenode.net/?channels=#godotengine>`_
 - `Engine development: #godotengine-devel <https://webchat.freenode.net/?channels=#godotengine-devel>`_
@@ -23,7 +32,7 @@ IRC on Freenode
 - `Pull request meetings: #godotengine-meeting <https://webchat.freenode.net/?channels=#godotengine-meeting>`_
 - `GDNative: #godotengine-gdnative <https://webchat.freenode.net/?channels=#godotengine-gdnative>`_
 - `Website and public relations: #godotengine-atelier <https://webchat.freenode.net/?channels=#godotengine-atelier>`_
-- `IRC logs <https://godot.eska.me/irc-logs/>`_
+- `IRC logs <https://freenode.logbot.info/godotengine-devel>`_
 
 Other chats
 -----------
@@ -34,11 +43,8 @@ Other chats
 Language-based communities
 --------------------------
 
-- Brazilian Portuguese: `Godot Brasil (Discord) <https://discord.gg/gWmQKBv>`_
-- French: `Godot Francophone Officiel (Discord) <https://discord.gg/3jvf3XN>`_
-- French: `SoloCode Godot (Discord) <https://discord.gg/gZ3QJ5T>`_
-- German: `Deutsche Godot Community (Discord) <https://discord.gg/Tr7Ma6E>`_
-- Swedish: `Swedish Godot Community (Discord) <https://discord.gg/6ZsgWmH>`_
+See the `User groups <https://godotengine.org/community/user-groups>`_ page of
+the website for a list of local communities.
 
 Social networks
 ---------------

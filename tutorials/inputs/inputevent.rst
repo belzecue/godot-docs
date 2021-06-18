@@ -1,7 +1,7 @@
 .. _doc_inputevent:
 
-InputEvent
-==========
+Using InputEvent
+================
 
 What is it?
 -----------
@@ -19,7 +19,7 @@ Here is a quick example, closing your game if the escape key is hit:
 
     func _unhandled_input(event):
         if event is InputEventKey:
-            if event.pressed and event.scancode == KEY_ESCAPE:
+            if event.pressed and event.keycode == KEY_ESCAPE:
                 get_tree().quit()
 
  .. code-tab:: csharp
@@ -27,7 +27,7 @@ Here is a quick example, closing your game if the escape key is hit:
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey eventKey)
-            if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
+            if (eventKey.Pressed && eventKey.Keycode == (int)KeyList.Escape)
                 GetTree().Quit();
     }
 
@@ -82,7 +82,7 @@ received input, in order:
 2. Second, it will try to feed the input to the GUI, and see if any
    control can receive it. If so, the :ref:`Control <class_Control>` will be called via the
    virtual function :ref:`Control._gui_input() <class_Control_method__gui_input>` and the signal
-   "input_event" will be emitted (this function is re-implementable by
+   "gui_input" will be emitted (this function is re-implementable by
    script by inheriting from it). If the control wants to "consume" the
    event, it will call :ref:`Control.accept_event() <class_Control_method_accept_event>` and the event will
    not spread any more. Use the :ref:`Control.mouse_filter <class_Control_property_mouse_filter>`
@@ -131,7 +131,7 @@ There are several specialized types of InputEvent, described in the table below:
 +-------------------------------------------------------------------+--------------------+-----------------------------------------+
 | :ref:`InputEvent <class_InputEvent>`                              | NONE               | Empty Input Event.                      |
 +-------------------------------------------------------------------+--------------------+-----------------------------------------+
-| :ref:`InputEventKey <class_InputEventKey>`                        | KEY                | Contains a scancode and Unicode value,  |
+| :ref:`InputEventKey <class_InputEventKey>`                        | KEY                | Contains a keycode and Unicode value,   |
 |                                                                   |                    | as well as modifiers.                   |
 +-------------------------------------------------------------------+--------------------+-----------------------------------------+
 | :ref:`InputEventMouseButton <class_InputEventMouseButton>`        | MOUSE_BUTTON       | Contains click information, such as     |

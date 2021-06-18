@@ -1,20 +1,23 @@
 .. _doc_gdscript:
 
-GDScript basics
-===============
+GDScript reference
+==================
 
-Introduction
-------------
+:ref:`GDScript<doc_gdscript>` is a high-level, `object-oriented
+<https://en.wikipedia.org/wiki/Object-oriented_programming>`_, `imperative
+<https://en.wikipedia.org/wiki/Imperative_programming>`_, and `gradually typed
+<https://en.wikipedia.org/wiki/Gradual_typing>`_ programming language built for Godot.
 
 *GDScript* is a high-level, dynamically typed programming language used to
-create content. It uses a syntax similar to
-`Python <https://en.wikipedia.org/wiki/Python_%28programming_language%29>`_
-(blocks are indent-based and many keywords are similar). Its goal is
-to be optimized for and tightly integrated with Godot Engine, allowing great
-flexibility for content creation and integration.
+create content. It uses an indentation-based syntax similar to languages like
+`Python <https://en.wikipedia.org/wiki/Python_%28programming_language%29>`_.
+Its goal is to be optimized for and tightly integrated with Godot Engine,
+allowing great flexibility for content creation and integration.
+
+GDScript is entirely independent from Python and is not based on it.
 
 History
-~~~~~~~
+-------
 
 .. note::
 
@@ -22,7 +25,7 @@ History
     :ref:`Frequently Asked Questions <doc_faq_what_is_gdscript>`.
 
 Example of GDScript
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Some people can learn better by taking a look at the syntax, so
 here's a simple example of how GDScript looks.
@@ -336,7 +339,8 @@ Here's the list of available annotations:
 +------------------------------+---------------------------------------------------------------------------------------------------+
 | ``@tool``                    | Enable the `Tool mode`_.                                                                          |
 +------------------------------+---------------------------------------------------------------------------------------------------+
-| ``@onready``                 | Defer initialization of variable until the node is in the tree. See `Onready annotation`_.        |
+| ``@onready``                 | Defer initialization of variable until the node is in the tree. See                               |
+|                              | :ref:`doc_gdscript_onready_annotation`.                                                           |
 +------------------------------+---------------------------------------------------------------------------------------------------+
 | ``@icon(path)``              | Set the class icon to show in editor. To be used together with the ``class_name`` keyword.        |
 +------------------------------+---------------------------------------------------------------------------------------------------+
@@ -1190,8 +1194,6 @@ There are 6 pattern types:
             "Sword", "Splash potion", "Fist":
                 print("Yep, you've taken damage")
 
-
-
 Classes
 ~~~~~~~
 
@@ -1208,7 +1210,12 @@ path. For example, if you name a script file ``character.gd``::
    var Character = load("res://path/to/character.gd")
    var character_node = Character.new()
 
-Instead, you can give your class a name to register it as a new type in Godot's
+.. _doc_gdscript_basics_class_name:
+
+Registering named classes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can give your class a name to register it as a new type in Godot's
 editor. For that, you use the ``class_name`` keyword. You can optionally use
 the ``@icon`` annotation with a path to an image, to use it as an icon. Your
 class will then appear with its new icon in the editor::
@@ -1311,7 +1318,7 @@ the function name with the attribute operator::
         return super.overriding() # This calls the method as defined in the base class.
 
 
-Class Constructor
+Class constructor
 ^^^^^^^^^^^^^^^^^
 
 The class constructor, called on class instantiation, is named ``_init``. If you
@@ -1357,7 +1364,7 @@ There are a few things to keep in mind here:
    in to ``Idle.gd``.
 4. If ``Idle.gd``'s ``_init`` constructor takes 0 arguments, it still needs to pass some value
    to the ``State.gd`` base class, even if it does nothing. This brings us to the fact that you
-   can pass expressions to the base constructor as well, not just variables. eg.::
+   can pass expressions to the base constructor as well, not just variables, e.g.::
 
     # Idle.gd
 
@@ -1491,6 +1498,8 @@ See :ref:`doc_running_code_in_the_editor` for more information.
              scripts run their code in the editor, misusing them may lead to
              crashing the editor.
 
+.. _doc_gdscript_basics_memory_management:
+
 Memory management
 ~~~~~~~~~~~~~~~~~
 
@@ -1499,8 +1508,22 @@ freed when no longer in use. No garbage collector exists, just
 reference counting. By default, all classes that don't define
 inheritance extend **Reference**. If this is not desired, then a class
 must inherit :ref:`class_Object` manually and must call ``instance.free()``. To
-avoid reference cycles that can't be freed, a ``weakref`` function is
-provided for creating weak references.
+avoid reference cycles that can't be freed, a :ref:`class_WeakRef` function is
+provided for creating weak references. Here is an example:
+
+::
+
+    extends Node
+
+    var my_node_ref
+
+    func _ready():
+        my_node_ref = weakref(get_node("MyNode"))
+
+    func _this_is_called_later():
+        var my_node = my_node_ref.get_ref()
+        if my_node:
+            my_node.do_something()
 
 Alternatively, when not using references, the
 ``is_instance_valid(instance)`` can be used to check if an object has been
@@ -1718,8 +1741,10 @@ This also means that returning a signal from a function that isn't a coroutine w
           type-safety, because a function cannot say that returns an ``int`` but actually give a function state object
           during runtime.
 
-Onready annotation
-~~~~~~~~~~~~~~~~~~
+.. _doc_gdscript_onready_annotation:
+
+`@onready` annotation
+~~~~~~~~~~~~~~~~~~~~~
 
 When using nodes, it's common to desire to keep references to parts
 of the scene in a variable. As scenes are only warranted to be

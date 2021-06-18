@@ -95,9 +95,9 @@ What is GDScript and why should I use it?
 GDScript is Godot's integrated scripting language. It was built from the ground
 up to maximize Godot's potential in the least amount of code, affording both novice
 and expert developers alike to capitalize on Godot's strengths as fast as possible.
-If you've ever written anything in a language like Python before then you'll feel
-right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the :ref:`GDScript scripting guide <doc_gdscript>`.
+If you've ever written anything in a language like Python before, then you'll feel
+right at home. For examples and a complete overview of the power GDScript offers
+you, check out the :ref:`GDScript scripting guide <doc_gdscript>`.
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -126,11 +126,11 @@ languages can be found in the :ref:`doc_gdscript_more_efficiently` tutorial.
 What were the motivations behind creating GDScript?
 ---------------------------------------------------
 
-In the early days, the engine used the `Lua <https://www.lua.org>`__
-scripting language. Lua is fast, but creating bindings to an object
-oriented system (by using fallbacks) was complex and slow and took an
-enormous amount of code. After some experiments with
-`Python <https://www.python.org>`__, it also proved difficult to embed.
+In the early days, the engine used the `Lua <https://www.lua.org>`__ scripting
+language. Lua can be fast thanks to LuaJIT, but creating bindings to an object
+oriented system (by using fallbacks) was complex and slow and took an enormous
+amount of code. After some experiments with `Python <https://www.python.org>`__,
+it also proved difficult to embed.
 
 The main reasons for creating a custom scripting language for Godot were:
 
@@ -152,16 +152,22 @@ The main reasons for creating a custom scripting language for Godot were:
 
 GDScript was designed to curtail the issues above, and more.
 
-What type of 3D model formats does Godot support?
--------------------------------------------------
+What 3D model formats does Godot support?
+-----------------------------------------
 
-Godot supports Collada via the `OpenCollada <https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools>`_ exporter (Maya, 3DSMax).
-If you are using Blender, take a look at our own `Better Collada Exporter <https://github.com/godotengine/collada-exporter>`_.
+Godot supports the following formats:
 
-As of Godot 3.0, glTF is supported.
+- glTF 2.0 *(recommended)*
+- Collada
+- OBJ
+- FBX (static meshes only)
 
-FBX is supported via the Open Asset Import library. However, FBX is proprietary
-so we recommend using other formats listed above, if suitable for your workflow.
+FBX support is the fruit of reverse engineering via the Open Asset Import library.
+However, FBX is proprietary so we recommend using other formats listed above,
+if suitable for your workflow.
+
+You can find more detailed information on supported formats, and how to export
+and import them for Godot :ref:`here <doc_importing_3d_scenes>`.
 
 Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Godot?
 -----------------------------------------------------------------------------
@@ -200,6 +206,48 @@ issues.
 In the long term, we may develop a Direct3D 12 renderer for Godot (mainly for
 the Xbox's purposes), but Vulkan and OpenGL will remain the default rendering
 backends on all platforms, including Windows.
+
+Why does Godot aim to keep its core feature set small?
+------------------------------------------------------
+
+Godot intentionally does not include features that can be implemented by add-ons
+unless they are used very often. One example of this would be advanced
+artificial intelligence functionality.
+
+There are several reasons for this:
+
+- **Code maintenance and surface for bugs.** Every time we accept new code in
+  the Godot repository, existing contributors often take the reponsibility of
+  maintaining it. Some contributors don't always stick around after getting
+  their code merged, which can make it difficult for us to maintain the code in
+  question. This can lead to poorly maintained features with bugs that are never
+  fixed. On top of that, the "API surface" that needs to be tested and checked
+  for regressions keeps increasing over time.
+
+- **Ease of contribution.** By keeping the codebase small and tidy, it can remain
+  fast and easy to compile from source. This makes it easier for new
+  contributors to get started with Godot, without requiring them to purchase
+  high-end hardware.
+
+- **Keeping the binary size small for the editor.** Not everyone has a fast Internet
+  connection. Ensuring that everyone can download the Godot editor, extract it
+  and run it in less than 5 minutes makes Godot more accessible to developers in
+  all countries.
+
+- **Keeping the binary size small for export templates.** This directly impacts the
+  size of projects exported with Godot. On mobile and web platforms, keeping
+  file sizes low is primordial to ensure fast installation and loading on
+  underpowered devices. Again, there are many countries where high-speed
+  Internet is not readily available. To add to this, strict data usage caps are
+  often in effect in those countries.
+
+For all the reasons above, we have to be selective of what we can accept as core
+functionality in Godot. This is why we are aiming to move some core
+functionality to officially supported add-ons in future versions of Godot.
+In terms of binary size, this also has the advantage of making you pay only for
+what you actually use in your project. (In the meantime, you can
+:ref:`compile custom export templates with unused features disabled <doc_optimizing_for_size>`
+to optimize the distribution size of your project.)
 
 How should assets be created to handle multiple resolutions and aspect ratios?
 ------------------------------------------------------------------------------
@@ -313,6 +361,27 @@ developer experiences as a whole.
 Bonus points for bringing screenshots, concrete numbers, test cases, or example
 projects (if applicable).
 
+.. _doc_faq_non_game_applications:
+
+Is it possible to use Godot to create non-game applications?
+------------------------------------------------------------
+
+Yes! Godot features an extensive built-in UI system, and its small distribution
+size can make it a suitable alternative to frameworks like Electron or Qt.
+
+When creating a non-game application, make sure to enable
+:ref:`low-processor mode <class_ProjectSettings_property_application/run/low_processor_mode>`
+in the Project Settings to decrease CPU and GPU usage.
+
+That said, we wouldn't recommend using Godot to create a *mobile* application
+since low-processor mode isn't supported on mobile platforms yet.
+
+Check out `Material Maker <https://github.com/RodZill4/material-maker>`__ and
+`Pixelorama <https://github.com/Orama-Interactive/Pixelorama>`__ for examples of
+open source applications made with Godot.
+
+.. _doc_faq_use_godot_as_library:
+
 Is it possible to use Godot as a library?
 -----------------------------------------
 
@@ -325,6 +394,26 @@ If you want to use a rendering library, look into using an established rendering
 engine instead. Keep in mind rendering engines usually have smaller communities
 compared to Godot. This will make it more difficult to find answers to your
 questions.
+
+What user interface toolkit does Godot use?
+-------------------------------------------
+
+Godot does not use a standard :abbr:`GUI (Graphical User Interface)` toolkit
+like GTK, Qt or wxWidgets. Instead, Godot uses its own user interface toolkit,
+rendered using OpenGL ES or Vulkan. This toolkit is exposed in the form of
+Control nodes, which are used to render the editor (which is written in C++).
+These Control nodes can also be used in projects from any scripting language
+supported by Godot.
+
+This custom toolkit makes it possible to benefit from hardware acceleration and
+have a consistent appearance across all platforms. On top of that, it doesn't
+have to deal with the LGPL licensing caveats that come with GTK or Qt. Lastly,
+this means Godot is "eating its own dog food" since the editor itself is one of
+the most complex users of Godot's UI system.
+
+This custom UI toolkit :ref:`can't be used as a library <doc_faq_use_godot_as_library>`,
+but you can still
+:ref:`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications>`.
 
 Why does Godot not use STL (Standard Template Library)
 ------------------------------------------------------
@@ -356,6 +445,20 @@ Why does Godot not enforce RTTI?
 Godot provides its own type-casting system, which can optionally use RTTI
 internally. Disabling RTTI in Godot means considerably smaller binary sizes can
 be achieved, at a little performance cost.
+
+Does Godot use an ECS (Entity Component System)?
+------------------------------------------------
+
+Godot does **not** use an ECS and relies on inheritance instead. While there
+is no universally better approach, we found that using an inheritance-based approach
+resulted in better usability while still being fast enough for most use cases.
+
+That said, nothing prevents you from making use of composition in your project
+by creating child Nodes with individual scripts. These nodes can then be added and
+removed at run-time to dynamically add and remove behaviors.
+
+More information about Godot's design choices can be found in
+`this article <https://godotengine.org/article/why-isnt-godot-ecs-based-game-engine>`__.
 
 Why does Godot not force users to implement DoD (Data oriented Design)?
 -----------------------------------------------------------------------
